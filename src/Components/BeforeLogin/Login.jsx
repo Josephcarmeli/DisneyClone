@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import Login_background from "../../assets/images/Login_background.png";
 
 function Header() {
   const { login } = useContext(AuthContext);
