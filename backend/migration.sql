@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS usersmovies;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS movies;
+
+CREATE TABLE users (
+    UserID SERIAL PRIMARY KEY,
+    Username VARCHAR(255) NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL
+);
+
+CREATE TABLE movies (
+    MovieID SERIAL PRIMARY KEY,
+    Title VARCHAR(255) NOT NULL,
+    Genre VARCHAR(100) NOT NULL,
+    ReleaseYear INT NOT NULL
+);
+
+CREATE TABLE usersmovies (
+    UserID INT NOT NULL,
+    MovieID INT NOT NULL,
+    DateAdded DATE NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES users(UserID),
+    FOREIGN KEY (MovieID) REFERENCES movies(MovieID),
+    PRIMARY KEY (UserID, MovieID)
+);
+
